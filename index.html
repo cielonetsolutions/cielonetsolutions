@@ -17,7 +17,23 @@
         .servicio-card, .miembro-card { flex: 1; min-width: 280px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
         .miembro-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
         .clientes { background-color: #e6f0ff; text-align: center; padding: 40px 20px; }
-        .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); }
+        .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; text-align: center; } /* Añadido text-align: center; */
+        /* Estilo para el nuevo botón de contacto */
+        .btn-contacto {
+            background-color: #ff9900; /* Color llamativo (naranja) */
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-contacto:hover {
+            background-color: #cc7a00; /* Tono más oscuro al pasar el mouse */
+        }
         footer { background-color: #333; color: white; text-align: center; padding: 20px 0; font-size: 0.9em; }
         footer a { color: #87cefa; text-decoration: none; }
     </style>
@@ -96,13 +112,15 @@
 
     <section id="contacto">
         <h2>Contáctanos y Comencemos tu Proyecto</h2>
-        <p>¿Interesado en nuestros servicios? Completa el siguiente formulario y nos pondremos en contacto contigo a la brevedad.</p>
+        <p>¿Interesado en nuestros servicios? Haz clic en el botón para acceder a nuestro formulario de consulta detallado. Te responderemos a la brevedad.</p>
         
         <div class="formulario-contacto">
-            <h3>Formulario de Consulta</h3>
             
-            <iframe width="640px" height="480px" src="https://forms.cloud.microsoft/r/zZ1XZ9H1PZ?embed=true" frameborder="0" marginwidth="0" marginheight="0" style="border: none; max-width:100%; max-height:100vh" allowfullscreen webkitallowfullscreen mozallowfullscreen msallowfullscreen> </iframe>
-            </div>
+            <a href="https://forms.cloud.microsoft/r/zZ1XZ9H1PZ" target="_blank" class="btn-contacto">
+                Comenzar Consulta de Proyecto
+            </a>
+            <p style="margin-top: 20px;">También puedes escribirnos directamente a: info@cielonetsolutions.com</p>
+        </div>
     </section>
 
     <footer>
