@@ -13,11 +13,11 @@
         .hero { background-color: #f4f4f4; text-align: center; padding: 80px 20px; }
         .hero h2 { color: #004d99; font-size: 2.5em; }
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .servicios-grid, .equipo-grid { display: flex; flex-wrap: wrap; justify-content: space-around; gap: 20px; }
-        .servicio-card, .miembro-card { flex: 1; min-width: 280px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        .servicios-grid, .equipo-grid { display: flex; flex-wrap: wrap; justify-content: center; /* Centrado para 3 miembros */ gap: 20px; }
+        .servicio-card, .miembro-card { flex: 0 1 300px; /* Ajuste para que se vean bien tres tarjetas */ padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
         .miembro-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
         .clientes { background-color: #e6f0ff; text-align: center; padding: 40px 20px; }
-        .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; text-align: center; } /* Añadido text-align: center; */
+        .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; text-align: center; }
         /* Estilo para el nuevo botón de contacto */
         .btn-contacto {
             background-color: #ff9900; /* Color llamativo (naranja) */
@@ -78,24 +78,19 @@
         <h2>Nuestro Equipo de Expertos</h2>
         <div class="equipo-grid">
             <div class="miembro-card">
-                <img src="placeholder-gerson.jpg" alt="Foto de Gerson Suaznabar">
+                <img src="https://i.ibb.co/d0KPZ3rf/Photo-ID.png" alt="Foto de Gerson Suaznabar">
                 <h4>Gerson Suaznabar</h4>
                 <p>Ciencias de Datos</p>
             </div>
             <div class="miembro-card">
-                <img src="placeholder-pablo.jpg" alt="Foto de Pablo Mamani">
+                <img src="https://i.ibb.co/1Y9nD0DK/Pablo-Work.png" alt="Foto de Pablo Mamani">
                 <h4>Pablo Mamani</h4>
                 <p>Developer (Desarrollador Web)</p>
             </div>
             <div class="miembro-card">
-                <img src="placeholder-joel.jpg" alt="Foto de Joel Suaznabar">
+                <img src="https://i.ibb.co/CpX436LX/Joel-Suaznabar.png" alt="Foto de Joel Suaznabar">
                 <h4>Joel Suaznabar</h4>
-                <p>Developer (Desarrollador Web)</p>
-            </div>
-            <div class="miembro-card">
-                <img src="placeholder-cesia.jpg" alt="Foto de Cesia Perez">
-                <h4>Cesia Perez</h4>
-                <p>Ingeniera Comercial (Estrategia y Negocios)</p>
+                <p>Atención al Cliente (Funcionalidad de Apps)</p>
             </div>
         </div>
     </section>
