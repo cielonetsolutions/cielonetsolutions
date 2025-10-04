@@ -5,22 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cielonet Solutions | Desarrollo Web, Análisis e Ingeniería de Datos</title>
     <style>
-        /* Estilos básicos para la estructura - DEBES MEJORAR ESTO CON UN DISEÑO REAL */
+        /* Estilos básicos para la estructura */
         body { font-family: sans-serif; margin: 0; padding: 0; color: #333; }
-        header { background-color: #004d99; color: white; padding: 10px 20px; display: flex; justify-content: space-between; align-items: center; }
+        header { 
+            background-color: #004d99; 
+            color: white; 
+            padding: 10px 20px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+        }
+        .logo-container img {
+            height: 40px; /* Ajusta el tamaño del logo */
+            margin-right: 15px;
+            border-radius: 5px; /* Suaviza las esquinas del logo si es cuadrado */
+        }
         header h1 { margin: 0; font-size: 1.5em; }
         nav a { color: white; text-decoration: none; margin-left: 20px; }
         .hero { background-color: #f4f4f4; text-align: center; padding: 80px 20px; }
         .hero h2 { color: #004d99; font-size: 2.5em; }
         section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
-        .servicios-grid, .equipo-grid { display: flex; flex-wrap: wrap; justify-content: center; /* Centrado para 3 miembros */ gap: 20px; }
-        .servicio-card, .miembro-card { flex: 0 1 300px; /* Ajuste para que se vean bien tres tarjetas */ padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
+        .servicios-grid, .equipo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+        .servicio-card, .miembro-card { flex: 0 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
         .miembro-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
         .clientes { background-color: #e6f0ff; text-align: center; padding: 40px 20px; }
         .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; text-align: center; }
-        /* Estilo para el nuevo botón de contacto */
+        
+        /* Estilo para el botón de Contacto Principal */
         .btn-contacto {
-            background-color: #ff9900; /* Color llamativo (naranja) */
+            background-color: #ff9900; 
             color: white;
             padding: 15px 30px;
             text-decoration: none;
@@ -32,16 +49,52 @@
             transition: background-color 0.3s ease;
         }
         .btn-contacto:hover {
-            background-color: #cc7a00; /* Tono más oscuro al pasar el mouse */
+            background-color: #cc7a00;
         }
+
+        /* Estilos para el Botón Flotante de WhatsApp */
+        .whatsapp-float {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 40px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+        /* Icono de teléfono de WhatsApp (puedes reemplazarlo por un icono SVG o Font Awesome) */
+        .whatsapp-float::before {
+            content: '💬'; /* Usando un emoji simple como marcador de posición */
+            font-size: 1.5em;
+        }
+
         footer { background-color: #333; color: white; text-align: center; padding: 20px 0; font-size: 0.9em; }
         footer a { color: #87cefa; text-decoration: none; }
     </style>
 </head>
 <body>
 
+    <a href="https://wa.me/447852595868" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
+    </a>
+    
     <header>
-        <h1>Cielonet Solutions</h1>
+        <div class="logo-container">
+            <img src="https://i.ibb.co/5xkB7z57/Whats-App-Image-2025-10-04-at-21-47-55-3dc76688.jpg" alt="Cielonet Solutions Logo">
+            <h1>Cielonet Solutions</h1>
+        </div>
         <nav>
             <a href="#servicios">Servicios</a>
             <a href="#equipo">Equipo</a>
