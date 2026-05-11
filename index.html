@@ -6,7 +6,7 @@
     <title>Cielonet Solutions | Desarrollo Web, Análisis e Ingeniería de Datos</title>
     <style>
         /* Estilos básicos para la estructura */
-        body { font-family: sans-serif; margin: 0; padding: 0; color: #333; }
+        body { font-family: sans-serif; margin: 0; padding: 0; color: #333; line-height: 1.6; }
         header { 
             background-color: #004d99; 
             color: white; 
@@ -14,81 +14,103 @@
             display: flex; 
             justify-content: space-between; 
             align-items: center; 
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
         .logo-container {
             display: flex;
             align-items: center;
         }
         .logo-container img {
-            height: 40px; /* Ajusta el tamaño del logo */
+            height: 40px; 
             margin-right: 15px;
-            border-radius: 5px; /* Suaviza las esquinas del logo si es cuadrado */
+            border-radius: 5px; 
         }
         header h1 { margin: 0; font-size: 1.5em; }
-        nav a { color: white; text-decoration: none; margin-left: 20px; }
+        nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: bold; }
+        
         .hero { background-color: #f4f4f4; text-align: center; padding: 80px 20px; }
-        .hero h2 { color: #004d99; font-size: 2.5em; }
-        section { padding: 40px 20px; max-width: 1200px; margin: 0 auto; }
+        .hero h2 { color: #004d99; font-size: 2.5em; margin-bottom: 10px; }
+        
+        section { padding: 60px 20px; max-width: 1200px; margin: 0 auto; }
+        h2.section-title { text-align: center; color: #004d99; font-size: 2em; margin-bottom: 40px; }
+
+        /* Estilos de la Nueva Sección de Planes */
+        .planes-grid { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+            gap: 25px; 
+            margin-top: 30px;
+        }
+        .plan-card { 
+            border: 1px solid #ddd; 
+            border-radius: 12px; 
+            padding: 30px; 
+            text-align: center; 
+            transition: transform 0.3s, box-shadow 0.3s;
+            background: white;
+            display: flex;
+            flex-direction: column;
+        }
+        .plan-card:hover { transform: translateY(-10px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+        .plan-card h3 { color: #004d99; margin-top: 0; }
+        .plan-price { font-size: 1.8em; font-weight: bold; color: #ff9900; margin: 15px 0; }
+        .plan-features { list-style: none; padding: 0; margin: 20px 0; text-align: left; flex-grow: 1; }
+        .plan-features li { margin-bottom: 10px; font-size: 0.95em; }
+        .plan-features li::before { content: "✓ "; color: #25d366; font-weight: bold; }
+        .plan-tag { font-size: 0.8em; background: #e6f0ff; color: #004d99; padding: 5px 10px; border-radius: 20px; display: inline-block; margin-bottom: 15px; }
+
+        /* Servicios Originales */
         .servicios-grid, .equipo-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
         .servicio-card, .miembro-card { flex: 0 1 300px; padding: 20px; border: 1px solid #ddd; border-radius: 8px; text-align: center; }
         .miembro-card img { width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin-bottom: 10px; }
-        .clientes { background-color: #e6f0ff; text-align: center; padding: 40px 20px; }
+        
+        .clientes { background-color: #e6f0ff; text-align: center; padding: 60px 20px; }
         .formulario-contacto { background-color: white; padding: 30px; border-radius: 8px; text-align: center; }
         
-        /* Estilo para el botón de Contacto Principal */
+        /* Botones */
         .btn-contacto {
             background-color: #ff9900; 
             color: white;
             padding: 15px 30px;
             text-decoration: none;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 20px;
             transition: background-color 0.3s ease;
         }
-        .btn-contacto:hover {
-            background-color: #cc7a00;
-        }
+        .btn-contacto:hover { background-color: #cc7a00; }
 
-        /* Estilos para el Botón Flotante de WhatsApp */
-        .whatsapp-float {
-            position: fixed;
-            width: 60px;
-            height: 60px;
-            bottom: 40px;
-            right: 40px;
-            background-color: #25d366;
-            color: #FFF;
-            border-radius: 50px;
-            text-align: center;
-            font-size: 30px;
-            box-shadow: 2px 2px 3px #999;
-            z-index: 100;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .btn-plan {
+            background-color: #004d99;
+            color: white;
+            padding: 10px 20px;
             text-decoration: none;
-            transition: transform 0.3s;
-        }
-        .whatsapp-float:hover {
-            transform: scale(1.1);
-        }
-        /* Icono de teléfono de WhatsApp (puedes reemplazarlo por un icono SVG o Font Awesome) */
-        .whatsapp-float::before {
-            content: '💬'; /* Usando un emoji simple como marcador de posición */
-            font-size: 1.5em;
+            border-radius: 5px;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
-        footer { background-color: #333; color: white; text-align: center; padding: 20px 0; font-size: 0.9em; }
+        /* Botón Flotante WhatsApp */
+        .whatsapp-float {
+            position: fixed; width: 60px; height: 60px; bottom: 40px; right: 40px;
+            background-color: #25d366; color: #FFF; border-radius: 50px;
+            text-align: center; font-size: 30px; box-shadow: 2px 2px 3px #999;
+            z-index: 100; display: flex; justify-content: center; align-items: center;
+            text-decoration: none; transition: transform 0.3s;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); }
+        .whatsapp-float::before { content: '💬'; font-size: 1.2em; }
+
+        footer { background-color: #333; color: white; text-align: center; padding: 30px 0; font-size: 0.9em; }
         footer a { color: #87cefa; text-decoration: none; }
     </style>
 </head>
 <body>
 
-    <a href="https://wa.me/447852595868" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp">
-    </a>
+    <a href="https://wa.me/447852595868" target="_blank" class="whatsapp-float" aria-label="Contactar por WhatsApp"></a>
     
     <header>
         <div class="logo-container">
@@ -97,8 +119,8 @@
         </div>
         <nav>
             <a href="#servicios">Servicios</a>
+            <a href="#planes">Planes Web</a>
             <a href="#equipo">Equipo</a>
-            <a href="#clientes">Clientes</a>
             <a href="#contacto">Contacto</a>
         </nav>
     </header>
@@ -106,29 +128,86 @@
     <div class="hero">
         <h2>Impulsamos tu negocio con el poder de los datos y la tecnología web.</h2>
         <p>Expertos en desarrollo de e-commerce, análisis e ingeniería de datos.</p>
-        <a href="#contacto" style="background-color: #ff9900; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; display: inline-block; margin-top: 20px;">¡Solicita una Consulta Gratuita!</a>
+        <a href="#contacto" class="btn-contacto" style="margin-top: 20px;">¡Solicita una Consulta Gratuita!</a>
     </div>
 
+    <!-- Sección de Servicios Originales -->
     <section id="servicios">
-        <h2>Nuestros Servicios Clave</h2>
+        <h2 class="section-title">Nuestros Servicios Clave</h2>
         <div class="servicios-grid">
             <div class="servicio-card">
-                <h3>1. Desarrollo Web para Ventas Online</h3>
-                <p>Creamos tiendas virtuales potentes y seguras enfocadas en maximizar la conversión y la experiencia de usuario (UX).</p>
+                <h3>Desarrollo Web para Ventas Online</h3>
+                <p>Tiendas virtuales potentes enfocadas en maximizar la conversión.</p>
             </div>
             <div class="servicio-card">
-                <h3>2. Análisis de Datos</h3>
-                <p>Transformamos tus datos brutos en información valiosa para la toma de decisiones estratégicas y el crecimiento de tu negocio.</p>
+                <h3>Análisis de Datos</h3>
+                <p>Información valiosa para la toma de decisiones estratégicas.</p>
             </div>
             <div class="servicio-card">
-                <h3>3. Ingeniería de Datos</h3>
-                <p>Diseñamos y construimos la infraestructura necesaria (ETL, Data Warehouses) para garantizar que tus datos sean limpios, accesibles y confiables.</p>
+                <h3>Ingeniería de Datos</h3>
+                <p>Infraestructura sólida (ETL, Data Warehouses) para datos confiables.</p>
             </div>
         </div>
     </section>
 
+    <!-- NUEVA SECCIÓN: PLANES DE DESARROLLO -->
+    <section id="planes" style="background-color: #f9f9f9; width: 100%; max-width: none;">
+        <div style="max-width: 1200px; margin: 0 auto;">
+            <h2 class="section-title">Planes de Desarrollo Web</h2>
+            <div class="planes-grid">
+                
+                <!-- Plan Emprendedor -->
+                <div class="plan-card">
+                    <span class="plan-tag">Presencia Rápida</span>
+                    <h3>Landing Page</h3>
+                    <div class="plan-price">1,400 Bs</div>
+                    <ul class="plan-features">
+                        <li>Diseño One-Page moderno</li>
+                        <li>Botón directo a WhatsApp</li>
+                        <li>Formulario de contacto</li>
+                        <li>Optimizado para celulares</li>
+                        <li>Dominio y Hosting (1 año)</li>
+                    </ul>
+                    <a href="https://wa.me/447852595868?text=Hola, me interesa el plan Landing Page" class="btn-plan">Lo quiero</a>
+                </div>
+
+                <!-- Plan Negocio -->
+                <div class="plan-card" style="border: 2px solid #ff9900; position: relative;">
+                    <span class="plan-tag" style="background: #ff9900; color: white;">Más Popular</span>
+                    <h3>E-commerce / Catálogo</h3>
+                    <div class="plan-price">3,800 Bs</div>
+                    <ul class="plan-features">
+                        <li>Catálogo de productos ilimitado</li>
+                        <li><strong>Integración Pagos QR</strong></li>
+                        <li>Carrito de compras</li>
+                        <li>Panel para subir productos</li>
+                        <li>Referencia: Florería Cochabamba</li>
+                    </ul>
+                    <a href="https://wa.me/447852595868?text=Hola, me interesa el plan E-commerce" class="btn-contacto" style="padding: 10px 20px;">Elegir Plan</a>
+                </div>
+
+                <!-- Plan Corporativo -->
+                <div class="plan-card">
+                    <span class="plan-tag">Sistemas Especializados</span>
+                    <h3>Inmobiliario / Medida</h3>
+                    <div class="plan-price">Cotización</div>
+                    <ul class="plan-features">
+                        <li>Buscadores con filtros avanzados</li>
+                        <li>Gestión de base de datos masiva</li>
+                        <li>SEO avanzado para Google</li>
+                        <li>Referencia: Proyectos UK (Spain Properties)</li>
+                        <li>Soporte técnico premium</li>
+                    </ul>
+                    <a href="https://wa.me/447852595868?text=Hola, necesito una cotización para un sistema a medida" class="btn-plan">Consultar</a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipo Original -->
     <section id="equipo">
-        <h2>Nuestro Equipo de Expertos</h2>
+        <h2 class="section-title">Nuestro Equipo de Expertos</h2>
         <div class="equipo-grid">
             <div class="miembro-card">
                 <img src="https://i.ibb.co/d0KPZ3rf/Photo-ID.png" alt="Foto de Gerson Suaznabar">
@@ -143,31 +222,29 @@
             <div class="miembro-card">
                 <img src="https://i.ibb.co/JWdRNTRZ/Joel-Suaznabar-Copy.png" alt="Foto de Joel Suaznabar">
                 <h4>Joel Suaznabar</h4>
-                <p>Relacion Comercial (Tecnologia)</p>
+                <p>Relacion Comercial (Tecnología)</p>
             </div>
         </div>
     </section>
 
     <div id="clientes" class="clientes">
-        <h2>Compañías que Confían en Nosotros</h2>
-        <p>Trabajamos de la mano con emprendimientos para llevarlos al siguiente nivel digital.</p>
-        <div>
+        <h2 class="section-title">Casos de Éxito</h2>
+        <p>Proyectos destacados que impulsan el comercio local e internacional.</p>
+        <div style="background: white; padding: 20px; border-radius: 8px; display: inline-block; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
             <h3>Florería Cochabamba</h3>
-            <p>Proyecto: Diseño y Desarrollo de Plataforma E-commerce.</p>
-            <a href="https://www.floreriacochabamba.com" target="_blank">www.floreriacochabamba.com</a>
+            <p>Plataforma E-commerce con integración de pagos y logística.</p>
+            <a href="https://www.floreriacochabamba.com" target="_blank" style="color: #004d99; font-weight: bold;">Ver proyecto</a>
         </div>
-        </div>
+    </div>
 
     <section id="contacto">
-        <h2>Contáctanos y Comencemos tu Proyecto</h2>
-        <p>¿Interesado en nuestros servicios? Haz clic en el botón para acceder a nuestro formulario de consulta detallado. Te responderemos a la brevedad.</p>
-        
+        <h2 class="section-title">Comencemos tu Proyecto</h2>
         <div class="formulario-contacto">
-            
+            <p>¿Listo para llevar tu negocio al siguiente nivel? Haz clic abajo para iniciar.</p>
             <a href="https://forms.cloud.microsoft/r/zZ1XZ9H1PZ" target="_blank" class="btn-contacto">
                 Comenzar Consulta de Proyecto
             </a>
-            <p style="margin-top: 20px;">También puedes escribirnos directamente a: **cielonetsolutions@gmail.com**</p>
+            <p style="margin-top: 20px;">Email directo: <strong>cielonetsolutions@gmail.com</strong></p>
         </div>
     </section>
 
